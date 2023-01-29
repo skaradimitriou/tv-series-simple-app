@@ -1,8 +1,9 @@
 package com.example.domain.repositories
 
 import com.example.domain.models.TvShow
+import kotlinx.coroutines.flow.Flow
 
 interface TvShowsRepository {
 
-    suspend fun getTvShows(): List<TvShow>
+    suspend fun getTvShows(): Flow<List<TvShow>>
 }

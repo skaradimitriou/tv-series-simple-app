@@ -25,8 +25,9 @@ class ShowsViewModel @Inject constructor(
 
     fun getData() {
         viewModelScope.launch(Dispatchers.IO) {
-            val data = useCase.getTvShows()
-            _shows.postValue(data)
+            useCase.getTvShows().collect {
+                _shows.postValue(it)
+            }
         }
     }
 }
