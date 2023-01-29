@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
-abstract class AbstractActivity(private val layoutId: Int) : AppCompatActivity() {
+abstract class SimplifiedActivity<VB : ViewDataBinding>(private val layoutId: Int) :
+    AppCompatActivity() {
 
-    lateinit var binding: ViewDataBinding
+    lateinit var binding: VB
 
     abstract fun init()
     abstract fun startOps()

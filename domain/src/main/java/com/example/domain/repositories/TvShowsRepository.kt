@@ -4,5 +4,5 @@ import com.example.domain.models.TvShow
 
 interface TvShowsRepository {
 
-    fun getTvShows(): List<TvShow>
+    suspend fun getTvShows(): List<TvShow>
 }

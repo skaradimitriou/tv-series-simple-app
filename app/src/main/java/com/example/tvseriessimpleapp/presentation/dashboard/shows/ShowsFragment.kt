@@ -1,10 +1,10 @@
 package com.example.tvseriessimpleapp.presentation.dashboard.shows
 
 import com.example.tvseriessimpleapp.R
-import com.example.tvseriessimpleapp.abstraction.AbstractFragment
+import com.example.tvseriessimpleapp.abstraction.SimplifiedFragment
 
 
-class ShowsListFragment : AbstractFragment(R.layout.fragment_shows) {
+class ShowsListFragment : SimplifiedFragment(R.layout.fragment_shows) {
 
     override fun init() {
         //

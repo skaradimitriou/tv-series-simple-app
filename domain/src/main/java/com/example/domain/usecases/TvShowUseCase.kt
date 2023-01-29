@@ -1,8 +1,11 @@
 package com.example.domain.usecases
 
-import com.example.domain.repositories.TvShowsRepositoryImpl
+import com.example.domain.repositories.TvShowsRepository
+import javax.inject.Inject
 
-class TvShowUseCase(private val repo: TvShowsRepositoryImpl) {
+class TvShowUseCase @Inject constructor(
+    private val repo: TvShowsRepository
+) {
 
-    fun getTvShows() = repo.getTvShows()
+    suspend fun getTvShows() = repo.getTvShows()
 }

@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface Endpoints {
 
     @GET("shows")
-    suspend fun getTvShows(): Response<TvShowDto?>
+    suspend fun getTvShows(): Response<List<TvShowDto?>>
 }
