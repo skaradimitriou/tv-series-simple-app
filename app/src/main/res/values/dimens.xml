@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General Dimen -->
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="dimen_80">80dp</dimen>
+    <dimen name="dimen_100">100dp</dimen>
+
+    <!-- Text Dimen -->
+    <dimen name="text_20">20sp</dimen>
+
+</resources>

@@ -8,9 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 
-abstract class SimplifiedFragment(private val layoutId: Int) : Fragment() {
+abstract class SimplifiedFragment<VB : ViewDataBinding>(private val layoutId: Int) : Fragment() {
 
-    lateinit var binding: ViewDataBinding
+    lateinit var binding: VB
 
     abstract fun init()
     abstract fun startOps()
