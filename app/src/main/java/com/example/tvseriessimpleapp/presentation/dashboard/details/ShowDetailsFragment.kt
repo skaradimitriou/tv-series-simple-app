@@ -22,13 +22,16 @@ class ShowDetailsScreen :
     override fun init() {
         binding.showDetailsRecycler.adapter = adapter
 
-        sharedViewModel.selectedShow?.let {
-            setScreenTitle(title = it.title)
-            viewModel.getShowInfo(it.id ?: 0)
+        sharedViewModel.selectedShowId?.let {
+            viewModel.getShowInfo(it)
         }
     }
 
     override fun startOps() {
+        viewModel.screenTitle.observe(viewLifecycleOwner) { title ->
+            setScreenTitle(title)
+        }
+
         viewModel.showDetails.observe(viewLifecycleOwner) { showDetails ->
             adapter.submitList(showDetails)
         }

@@ -21,12 +21,12 @@ class ShowsListFragment : SimplifiedFragment<FragmentShowsBinding>(R.layout.frag
     private val sharedViewModel: SeriesSharedViewModel by activityViewModels()
 
     private val adapter = TvShowsAdapter { selectedTvShow ->
-        sharedViewModel.selectedShow = selectedTvShow
+        sharedViewModel.selectedShowId = selectedTvShow.id
         sharedViewModel.navigateToScreen(Action.SHOW_DETAILS)
     }
 
     override fun init() {
-        setScreenTitle(title = "Tv Shows")
+        setScreenTitle(title = getString(R.string.tv_shows_title))
 
         binding.tvShowsRecycler.apply {
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))

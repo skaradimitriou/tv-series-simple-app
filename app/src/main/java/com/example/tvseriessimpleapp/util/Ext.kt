@@ -1,7 +1,5 @@
 package com.example.tvseriessimpleapp.util
 
-import android.content.Context
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
 /**
@@ -11,5 +9,3 @@ import androidx.fragment.app.Fragment
 fun Fragment.setScreenTitle(title: String) {
     requireActivity().title = title
 }
-
-fun Context.getActualColor(colorId: Int) = ContextCompat.getColor(this, colorId)

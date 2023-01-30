@@ -20,7 +20,7 @@ class SeriesActivity : SimplifiedActivity<ActivitySeriesBinding>(R.layout.activi
 
     override fun init() {
         navController = findNavController(R.id.nav_host_fragment)
-        navigator = NavigatorImpl(navController)
+        navigator = NavigatorImpl(this, navController)
     }
 
     override fun startOps() {
@@ -36,13 +36,13 @@ class SeriesActivity : SimplifiedActivity<ActivitySeriesBinding>(R.layout.activi
 
     override fun stopOps() {}
 
+    override fun onBackPressed() {
+        navigator.goBack()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         android.R.id.home -> {
-            if (navController.graph.startDestinationId == navController.currentDestination?.id) {
-                finish()
-            } else {
-                navController.popBackStack()
-            }
+            navigator.goBack()
             true
         }
         else -> false

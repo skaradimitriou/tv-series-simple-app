@@ -22,6 +22,11 @@ class ShowDetailsViewModel @Inject constructor(
     private val dispatcher: CoroutineDispatcher
 ) : SimplifiedViewModel(app) {
 
+    val screenTitle: LiveData<String>
+        get() = _screenTitle
+
+    private val _screenTitle = MutableLiveData<String>()
+
     val showDetails: LiveData<List<UiModel>>
         get() = _showDetails
 
@@ -30,6 +35,7 @@ class ShowDetailsViewModel @Inject constructor(
     fun getShowInfo(showId: Int) {
         viewModelScope.launch(dispatcher) {
             useCase.getTvShowInfo(showId).collect { show ->
+                _screenTitle.postValue(show.title)
                 transformToUiModel(show)
             }
         }
