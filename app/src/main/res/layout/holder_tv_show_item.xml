@@ -22,7 +22,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
             android:padding="@dimen/dimen_16">
 
             <ImageView
@@ -39,12 +38,11 @@
 
             <TextView
                 android:id="@+id/tvShowTitleTxtView"
+                style="@style/text_20_bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen_10"
                 android:text="@{model.title}"
-                android:textSize="@dimen/text_20"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvShowImgView"
                 app:layout_constraintTop_toTopOf="parent"

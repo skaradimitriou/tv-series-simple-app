@@ -28,6 +28,13 @@
             tools:src="@mipmap/tv_series_logo" />
 
         <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#90000000"
+            app:layout_constraintBottom_toBottomOf="@id/storyImgView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
             android:id="@+id/centerPoint"
             android:layout_width="@dimen/dimen_1"
             android:layout_height="@dimen/dimen_1"
@@ -50,12 +57,11 @@
 
         <TextView
             android:id="@+id/showTitleTxtView"
+            style="@style/text_20_bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_16"
             android:text="@{model.title}"
-            android:textSize="18sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/posterImgView"
             app:layout_constraintTop_toBottomOf="@id/storyImgView"
@@ -72,6 +78,19 @@
             app:layout_constraintTop_toBottomOf="@id/showTitleTxtView"
             app:setShowRating="@{model.rating}"
             tools:rating="4" />
+
+        <TextView
+            android:id="@+id/ratingDescTxtView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_10"
+            android:textSize="@dimen/text_16"
+            app:layout_constraintBottom_toBottomOf="@id/showRating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/showRating"
+            app:layout_constraintTop_toTopOf="@id/showRating"
+            app:setFullRating="@{model.rating}"
+            tools:text="@string/dummy_rating" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

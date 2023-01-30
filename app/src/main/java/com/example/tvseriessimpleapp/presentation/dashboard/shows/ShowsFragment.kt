@@ -28,6 +28,8 @@ class ShowsListFragment : SimplifiedFragment<FragmentShowsBinding>(R.layout.frag
     override fun init() {
         setScreenTitle(title = getString(R.string.tv_shows_title))
 
+        viewModel.getData()
+
         binding.tvShowsRecycler.apply {
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
             adapter = this@ShowsListFragment.adapter
@@ -44,9 +46,7 @@ class ShowsListFragment : SimplifiedFragment<FragmentShowsBinding>(R.layout.frag
         }
     }
 
-    override fun startOps() {
-        viewModel.getData()
-    }
+    override fun startOps() {}
 
     override fun stopOps() {}
 }

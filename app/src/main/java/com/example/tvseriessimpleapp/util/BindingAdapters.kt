@@ -24,3 +24,8 @@ fun TextView.loadHtmlText(htmlText: String?) {
 fun RatingBar.setShowRating(rate: Double) {
     rating = (rate / 2).toFloat()
 }
+
+@BindingAdapter("setFullRating")
+fun TextView.setFullRating(rate: Double) {
+    text = resources.getString(R.string.rating_placeholder, rate.toString())
+}

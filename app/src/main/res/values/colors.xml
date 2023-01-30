@@ -7,8 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#E94560</color>
+
+    <!-- Light palette -->
     <color name="light_grey">#e5e5e5</color>
     <color name="yellow">#FDCC0D</color>
 
+    <!-- Dark palette -->
+    <color name="dark_bg">#404258</color>
+    <color name="item_bg">#50577A</color>
 
 </resources>

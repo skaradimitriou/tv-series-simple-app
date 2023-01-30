@@ -3,4 +3,7 @@
     <string name="tv_shows_title">TV Shows</string>
 
     <string name="lorem_ipsum">Lorem ipsum sit dolor amet</string>
+
+    <string name="dummy_rating">5.5/10</string>
+    <string name="rating_placeholder">%s/10</string>
 </resources>

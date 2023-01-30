@@ -30,7 +30,7 @@ class SeriesActivity : SimplifiedActivity<ActivitySeriesBinding>(R.layout.activi
         }
 
         viewModel.navigatorState.observe(this) { action ->
-            navigator.navigateTo(action)
+            action?.let { navigator.navigateTo(it) }
         }
     }
 
@@ -38,11 +38,13 @@ class SeriesActivity : SimplifiedActivity<ActivitySeriesBinding>(R.layout.activi
 
     override fun onBackPressed() {
         navigator.goBack()
+        viewModel.resetNavigation()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         android.R.id.home -> {
             navigator.goBack()
+            viewModel.resetNavigation()
             true
         }
         else -> false

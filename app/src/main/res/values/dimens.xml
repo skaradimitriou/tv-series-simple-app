@@ -15,5 +15,6 @@
 
     <!-- Text Dimen -->
     <dimen name="text_20">20sp</dimen>
+    <dimen name="text_16">16sp</dimen>
 
 </resources>

@@ -7,14 +7,16 @@ import com.example.tvseriessimpleapp.presentation.dashboard.navigator.Action
 
 class SeriesSharedViewModel : ViewModel() {
 
-    val navigatorState: LiveData<Action>
+    val navigatorState: LiveData<Action?>
         get() = _navigatorState
 
-    private val _navigatorState = MutableLiveData<Action>()
+    private val _navigatorState = MutableLiveData<Action?>()
 
     var selectedShowId: Int? = null
 
-    fun navigateToScreen(action: Action) {
+    fun resetNavigation() = _navigatorState.postValue(null)
+
+    fun navigateToScreen(action: Action?) {
         _navigatorState.postValue(action)
     }
 }
