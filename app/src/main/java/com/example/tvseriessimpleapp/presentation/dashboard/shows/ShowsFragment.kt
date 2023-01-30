@@ -4,6 +4,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.models.Result
 import com.example.tvseriessimpleapp.R
 import com.example.tvseriessimpleapp.abstraction.SimplifiedFragment
 import com.example.tvseriessimpleapp.databinding.FragmentShowsBinding
@@ -11,6 +12,7 @@ import com.example.tvseriessimpleapp.presentation.dashboard.SeriesSharedViewMode
 import com.example.tvseriessimpleapp.presentation.dashboard.navigator.Action
 import com.example.tvseriessimpleapp.presentation.dashboard.shows.adapter.TvShowsAdapter
 import com.example.tvseriessimpleapp.util.setScreenTitle
+import com.example.tvseriessimpleapp.util.showSnackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -27,6 +29,7 @@ class ShowsListFragment : SimplifiedFragment<FragmentShowsBinding>(R.layout.frag
 
     override fun init() {
         setScreenTitle(title = getString(R.string.tv_shows_title))
+        binding.loading = false
 
         viewModel.getData()
 
@@ -40,9 +43,19 @@ class ShowsListFragment : SimplifiedFragment<FragmentShowsBinding>(R.layout.frag
             viewModel.getData()
         }
 
-        viewModel.shows.observe(viewLifecycleOwner) { list ->
-            binding.swipeToRefresh.isRefreshing = false
-            adapter.submitList(list)
+        viewModel.shows.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Result.Loading -> binding.loading = true
+                is Result.Success -> {
+                    binding.loading = false
+                    binding.swipeToRefresh.isRefreshing = false
+                    adapter.submitList(result.data)
+                }
+                is Result.Error -> {
+                    binding.loading = false
+                    binding.mainConstraint.showSnackbar(result.error.toString())
+                }
+            }
         }
     }
 
