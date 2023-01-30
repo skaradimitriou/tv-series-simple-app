@@ -1,6 +1,7 @@
 package com.example.data.data.mappers
 
 import com.example.data.models.TvShowDto
+import com.example.data.util.NOT_APPLICABLE
 import com.example.domain.models.TvShow
 
 object TvSeriesMapper : Mapper<List<TvShowDto?>, List<TvShow>> {
@@ -9,7 +10,7 @@ object TvSeriesMapper : Mapper<List<TvShowDto?>, List<TvShow>> {
         TvShow(
             title = it?.name.toNotNull(),
             description = it?.summary.toNotNull(),
-            mainGenre = it?.genres?.firstOrNull().toNotNull(),
+            mainGenre = it?.genres?.firstOrNull() ?: NOT_APPLICABLE,
             imageUrl = it?.image?.original.toNotNull(),
             rating = it?.rating?.average.toNotNull()
         )
