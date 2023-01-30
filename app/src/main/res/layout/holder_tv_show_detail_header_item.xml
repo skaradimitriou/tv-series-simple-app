@@ -25,7 +25,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:loadImageUrl="@{model.imageUrl}"
-            tools:src="@mipmap/ic_launcher" />
+            tools:src="@mipmap/tv_series_logo" />
 
         <View
             android:id="@+id/centerPoint"
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="@id/centerPoint"
             app:layout_constraintTop_toTopOf="@id/centerPoint"
             app:loadImageUrl="@{model.imageUrl}"
-            tools:src="@mipmap/ic_launcher" />
+            tools:src="@mipmap/tv_series_logo" />
 
         <TextView
             android:id="@+id/showTitleTxtView"

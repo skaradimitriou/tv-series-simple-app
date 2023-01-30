@@ -10,9 +10,9 @@ import com.example.tvseriessimpleapp.R
 
 @BindingAdapter("loadImageUrl")
 fun ImageView.loadImageUrl(url: String?) = url?.let {
-    Glide.with(context).load(url).placeholder(R.mipmap.ic_launcher).into(this)
+    Glide.with(context).load(url).placeholder(R.mipmap.tv_series_logo).into(this)
 } ?: run {
-    setImageResource(R.mipmap.ic_launcher)
+    setImageResource(R.mipmap.tv_series_logo)
 }
 
 @BindingAdapter("loadHtmlText")

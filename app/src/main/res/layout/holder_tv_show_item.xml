@@ -29,12 +29,13 @@
                 android:id="@+id/tvShowImgView"
                 android:layout_width="@dimen/dimen_80"
                 android:layout_height="0dp"
+                android:contentDescription="@{model.title}"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="@id/tvShowDescTxtView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:loadImageUrl="@{model.imageUrl}"
-                tools:src="@mipmap/ic_launcher" />
+                tools:src="@mipmap/tv_series_logo" />
 
             <TextView
                 android:id="@+id/tvShowTitleTxtView"
