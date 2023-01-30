@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.TvShow
-import com.example.domain.usecases.TvShowUseCase
+import com.example.domain.usecases.TvShowListUseCase
 import com.example.tvseriessimpleapp.abstraction.SimplifiedViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ShowsViewModel @Inject constructor(
     app: Application,
-    private val useCase: TvShowUseCase
+    private val useCase: TvShowListUseCase
 ) : SimplifiedViewModel(app) {
 
     val shows: LiveData<List<TvShow>>

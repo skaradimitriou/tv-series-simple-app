@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.tvseriessimpleapp.presentation.dashboard.details.model.ShowDetailHeaderModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".presentation.dashboard.shows.ShowDetailsScreen">
+
+        <ImageView
+            android:id="@+id/storyImgView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_200"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImageUrl="@{model.imageUrl}"
+            tools:src="@mipmap/ic_launcher" />
+
+        <View
+            android:id="@+id/centerPoint"
+            android:layout_width="@dimen/dimen_1"
+            android:layout_height="@dimen/dimen_1"
+            android:layout_marginStart="@dimen/dimen_60"
+            app:layout_constraintBottom_toBottomOf="@id/storyImgView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/posterImgView"
+            android:layout_width="@dimen/dimen_100"
+            android:layout_height="@dimen/dimen_150"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@id/centerPoint"
+            app:layout_constraintEnd_toEndOf="@id/centerPoint"
+            app:layout_constraintStart_toStartOf="@id/centerPoint"
+            app:layout_constraintTop_toTopOf="@id/centerPoint"
+            app:loadImageUrl="@{model.imageUrl}"
+            tools:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/showTitleTxtView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16"
+            android:text="@{model.title}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/posterImgView"
+            app:layout_constraintTop_toBottomOf="@id/storyImgView"
+            tools:text="@string/app_name" />
+
+        <RatingBar
+            android:id="@+id/showRating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:progressTint="@color/yellow"
+            app:layout_constraintStart_toStartOf="@id/showTitleTxtView"
+            app:layout_constraintTop_toBottomOf="@id/showTitleTxtView"
+            app:setShowRating="@{model.rating}"
+            tools:rating="4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,6 +1,7 @@
 package com.example.tvseriessimpleapp.util
 
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
@@ -15,6 +16,11 @@ fun ImageView.loadImageUrl(url: String?) = url?.let {
 }
 
 @BindingAdapter("loadHtmlText")
-fun TextView.loadHtmlText(htmlText: String) {
-    text = HtmlCompat.fromHtml(htmlText, HtmlCompat.FROM_HTML_MODE_COMPACT)
+fun TextView.loadHtmlText(htmlText: String?) {
+    text = HtmlCompat.fromHtml(htmlText ?: "", HtmlCompat.FROM_HTML_MODE_COMPACT)
+}
+
+@BindingAdapter("setShowRating")
+fun RatingBar.setShowRating(rate: Double) {
+    rating = (rate / 2).toFloat()
 }

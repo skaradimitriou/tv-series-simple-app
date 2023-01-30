@@ -28,8 +28,9 @@
             <ImageView
                 android:id="@+id/tvShowImgView"
                 android:layout_width="@dimen/dimen_80"
-                android:layout_height="@dimen/dimen_100"
+                android:layout_height="0dp"
                 android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@id/tvShowDescTxtView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:loadImageUrl="@{model.imageUrl}"
@@ -48,14 +49,27 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/lorem_ipsum" />
 
+            <RatingBar
+                android:id="@+id/showRating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progressTint="@color/yellow"
+                app:layout_constraintStart_toStartOf="@id/tvShowTitleTxtView"
+                app:layout_constraintTop_toBottomOf="@id/tvShowTitleTxtView"
+                app:setShowRating="@{model.rating}"
+                tools:rating="4" />
+
             <TextView
                 android:id="@+id/tvShowDescTxtView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_10"
+                android:ellipsize="end"
+                android:maxLines="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tvShowTitleTxtView"
-                app:layout_constraintTop_toBottomOf="@id/tvShowTitleTxtView"
+                app:layout_constraintTop_toBottomOf="@id/showRating"
                 app:loadHtmlText="@{model.description}"
                 tools:text="@string/lorem_ipsum" />
 

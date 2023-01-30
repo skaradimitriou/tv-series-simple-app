@@ -1,20 +1,18 @@
 package com.example.domain.di
 
 import com.example.domain.repositories.TvShowsRepository
-import com.example.domain.usecases.TvShowUseCase
+import com.example.domain.usecases.TvShowListUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import dagger.hilt.android.components.ViewModelComponent
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 class UseCaseModule {
 
     @Provides
-    @Singleton
-    fun provideUseCase(repository: TvShowsRepository): TvShowUseCase {
-        return TvShowUseCase(repository)
+    fun provideUseCase(repository: TvShowsRepository): TvShowListUseCase {
+        return TvShowListUseCase(repository)
     }
 }

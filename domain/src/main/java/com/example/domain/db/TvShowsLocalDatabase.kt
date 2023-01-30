@@ -8,7 +8,7 @@ import com.example.domain.models.TvShow
 
 @Database(
     entities = arrayOf(TvShow::class),
-    version = 1,
+    version = 3,
     exportSchema = false
 )
 abstract class TvShowsLocalDatabase : RoomDatabase() {

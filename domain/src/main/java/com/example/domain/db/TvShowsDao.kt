@@ -11,7 +11,10 @@ import kotlinx.coroutines.flow.Flow
 interface TvShowsDao {
 
     @Query("SELECT * FROM shows ORDER BY title ASC")
-    fun getAllCountries(): Flow<List<TvShow>>
+    fun getAllShows(): Flow<List<TvShow>>
+
+    @Query("SELECT * FROM shows WHERE id=:id ORDER BY title ASC")
+    fun getShowById(id: Int): Flow<TvShow>
 
     @Insert
     suspend fun insertAll(list: List<TvShow>)

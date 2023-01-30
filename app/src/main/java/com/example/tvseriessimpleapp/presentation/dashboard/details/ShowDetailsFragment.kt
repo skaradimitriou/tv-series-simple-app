@@ -6,19 +6,33 @@ import com.example.tvseriessimpleapp.R
 import com.example.tvseriessimpleapp.abstraction.SimplifiedFragment
 import com.example.tvseriessimpleapp.databinding.FragmentShowDetailsBinding
 import com.example.tvseriessimpleapp.presentation.dashboard.SeriesSharedViewModel
+import com.example.tvseriessimpleapp.presentation.dashboard.details.adapter.ShowDetailsAdapter
+import com.example.tvseriessimpleapp.util.setScreenTitle
+import dagger.hilt.android.AndroidEntryPoint
 
-class ShowDetailsScreen : SimplifiedFragment<FragmentShowDetailsBinding>(R.layout.fragment_show_details) {
+@AndroidEntryPoint
+class ShowDetailsScreen :
+    SimplifiedFragment<FragmentShowDetailsBinding>(R.layout.fragment_show_details) {
 
     private val viewModel: ShowDetailsViewModel by viewModels()
     private val sharedViewModel: SeriesSharedViewModel by activityViewModels()
 
+    private val adapter = ShowDetailsAdapter()
+
     override fun init() {
+        binding.showDetailsRecycler.adapter = adapter
+
         sharedViewModel.selectedShow?.let {
-            binding.model = it
+            setScreenTitle(title = it.title)
+            viewModel.getShowInfo(it.id ?: 0)
         }
     }
 
-    override fun startOps() {}
+    override fun startOps() {
+        viewModel.showDetails.observe(viewLifecycleOwner) { showDetails ->
+            adapter.submitList(showDetails)
+        }
+    }
 
     override fun stopOps() {}
 }

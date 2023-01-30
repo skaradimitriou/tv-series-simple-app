@@ -10,6 +10,7 @@ import com.example.tvseriessimpleapp.databinding.FragmentShowsBinding
 import com.example.tvseriessimpleapp.presentation.dashboard.SeriesSharedViewModel
 import com.example.tvseriessimpleapp.presentation.dashboard.navigator.Action
 import com.example.tvseriessimpleapp.presentation.dashboard.shows.adapter.TvShowsAdapter
+import com.example.tvseriessimpleapp.util.setScreenTitle
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -25,18 +26,26 @@ class ShowsListFragment : SimplifiedFragment<FragmentShowsBinding>(R.layout.frag
     }
 
     override fun init() {
+        setScreenTitle(title = "Tv Shows")
+
         binding.tvShowsRecycler.apply {
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
             adapter = this@ShowsListFragment.adapter
+        }
+
+        binding.swipeToRefresh.setOnRefreshListener {
+            binding.swipeToRefresh.isRefreshing = true
+            viewModel.getData()
+        }
+
+        viewModel.shows.observe(viewLifecycleOwner) { list ->
+            binding.swipeToRefresh.isRefreshing = false
+            adapter.submitList(list)
         }
     }
 
     override fun startOps() {
         viewModel.getData()
-
-        viewModel.shows.observe(viewLifecycleOwner) { list ->
-            adapter.submitList(list)
-        }
     }
 
     override fun stopOps() {}

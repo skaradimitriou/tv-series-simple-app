@@ -4,11 +4,7 @@ import com.example.data.network.TvShowsService
 import com.example.domain.db.TvShowsDao
 import com.example.domain.mappers.TvSeriesMapper
 import com.example.domain.models.TvShow
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 class TvShowsRepositoryImpl @Inject constructor(
@@ -19,12 +15,16 @@ class TvShowsRepositoryImpl @Inject constructor(
     override suspend fun getTvShows(): Flow<List<TvShow>> {
         val data = remote.getTvShows()
         val mappedData = TvSeriesMapper.toDomainModel(data)
-        if (localDb.getAllCountries().first().isEmpty()) {
-            localDb.insertAll(mappedData)
+
+        return if (mappedData.isEmpty()) {
+            localDb.getAllShows()
         } else {
             localDb.updateAll(mappedData)
+            localDb.getAllShows()
         }
+    }
 
-        return localDb.getAllCountries()
+    override suspend fun getTvShowById(showId: Int): Flow<TvShow> {
+        return localDb.getShowById(showId)
     }
 }
