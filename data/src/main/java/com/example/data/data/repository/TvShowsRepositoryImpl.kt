@@ -1,9 +1,10 @@
-package com.example.domain.repositories
+package com.example.data.data.repository
 
-import com.example.data.network.TvShowsService
-import com.example.domain.db.TvShowsDao
-import com.example.domain.mappers.TvSeriesMapper
+import com.example.data.data.network.TvShowsService
+import com.example.data.data.db.TvShowsDao
+import com.example.data.data.mappers.TvSeriesMapper
 import com.example.domain.models.TvShow
+import com.example.domain.repository.TvShowsRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -19,7 +20,8 @@ class TvShowsRepositoryImpl @Inject constructor(
         return if (mappedData.isEmpty()) {
             localDb.getAllShows()
         } else {
-            localDb.updateAll(mappedData)
+            localDb.deleteAll()
+            localDb.insertAll(mappedData)
             localDb.getAllShows()
         }
     }

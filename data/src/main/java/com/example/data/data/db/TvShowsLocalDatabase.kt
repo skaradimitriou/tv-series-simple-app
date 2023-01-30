@@ -1,4 +1,4 @@
-package com.example.domain.db
+package com.example.data.data.db
 
 import android.content.Context
 import androidx.room.Database
@@ -8,7 +8,7 @@ import com.example.domain.models.TvShow
 
 @Database(
     entities = arrayOf(TvShow::class),
-    version = 3,
+    version = 5,
     exportSchema = false
 )
 abstract class TvShowsLocalDatabase : RoomDatabase() {

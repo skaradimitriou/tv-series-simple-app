@@ -1,6 +1,6 @@
 package com.example.domain.di
 
-import com.example.domain.repositories.TvShowsRepository
+import com.example.domain.repository.TvShowsRepository
 import com.example.domain.usecases.TvShowListUseCase
 import dagger.Module
 import dagger.Provides

@@ -1,4 +1,4 @@
-package com.example.domain.mappers
+package com.example.data.data.mappers
 
 import com.example.data.models.TvShowDto
 import com.example.domain.models.TvShow
@@ -9,6 +9,7 @@ object TvSeriesMapper : Mapper<List<TvShowDto?>, List<TvShow>> {
         TvShow(
             title = it?.name.toNotNull(),
             description = it?.summary.toNotNull(),
+            mainGenre = it?.genres?.firstOrNull().toNotNull(),
             imageUrl = it?.image?.original.toNotNull(),
             rating = it?.rating?.average.toNotNull()
         )

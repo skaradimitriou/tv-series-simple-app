@@ -1,6 +1,6 @@
 package com.example.domain.usecases
 
-import com.example.domain.repositories.TvShowsRepository
+import com.example.domain.repository.TvShowsRepository
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 

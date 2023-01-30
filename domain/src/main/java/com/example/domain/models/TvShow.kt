@@ -19,6 +19,9 @@ data class TvShow(
     @ColumnInfo(name = "description")
     val description: String,
 
+    @ColumnInfo(name = "mainGenre")
+    val mainGenre: String,
+
     @ColumnInfo(name = "rating")
     val rating: Double
 ) : UiModel {

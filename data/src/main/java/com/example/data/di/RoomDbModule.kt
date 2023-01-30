@@ -1,8 +1,8 @@
-package com.example.domain.di
+package com.example.data.di
 
 import android.app.Application
-import com.example.domain.db.TvShowsDao
-import com.example.domain.db.TvShowsLocalDatabase
+import com.example.data.data.db.TvShowsDao
+import com.example.data.data.db.TvShowsLocalDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.example.domain.repositories
+package com.example.domain.repository
 
 import com.example.domain.models.TvShow
 import kotlinx.coroutines.flow.Flow

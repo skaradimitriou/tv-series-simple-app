@@ -5,6 +5,7 @@ data class TvShowDto(
     val url: String? = null,
     val name: String? = null,
     val type: String? = null,
+    val genres: List<String>? = null,
     val language: String? = null,
     val image: ImageDto? = null,
     val summary: String? = null,

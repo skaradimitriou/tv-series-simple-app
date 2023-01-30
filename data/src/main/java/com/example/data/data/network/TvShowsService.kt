@@ -1,4 +1,4 @@
-package com.example.data.network
+package com.example.data.data.network
 
 import com.example.data.models.TvShowDto
 import javax.inject.Inject

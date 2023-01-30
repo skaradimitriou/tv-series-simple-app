@@ -1,4 +1,4 @@
-package com.example.domain.mappers
+package com.example.data.data.mappers
 
 interface Mapper<T, R> {
 

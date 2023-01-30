@@ -1,9 +1,9 @@
-package com.example.domain.di
+package com.example.data.di
 
-import com.example.data.network.TvShowsService
-import com.example.domain.db.TvShowsDao
-import com.example.domain.repositories.TvShowsRepository
-import com.example.domain.repositories.TvShowsRepositoryImpl
+import com.example.data.data.db.TvShowsDao
+import com.example.data.data.network.TvShowsService
+import com.example.domain.repository.TvShowsRepository
+import com.example.data.data.repository.TvShowsRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

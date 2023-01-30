@@ -1,4 +1,4 @@
-package com.example.domain.db
+package com.example.data.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert

@@ -1,7 +1,7 @@
 package com.example.data.di
 
-import com.example.data.network.Endpoints
-import com.example.data.network.TvShowsService
+import com.example.data.data.network.Endpoints
+import com.example.data.data.network.TvShowsService
 import com.example.data.util.BASE_URL
 import dagger.Module
 import dagger.Provides
